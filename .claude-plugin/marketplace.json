@@ -1,0 +1,26 @@
+{
+  "name": "devops-daily",
+  "owner": {
+    "name": "DevOps Daily",
+    "url": "https://devops-daily.com"
+  },
+  "metadata": {
+    "description": "Claude Code skills for DevOps engineers, by DevOps Daily."
+  },
+  "plugins": [
+    {
+      "name": "devops-daily-skills",
+      "source": "./plugins/devops-daily-skills",
+      "description": "Skills for DevOps engineers. Starts with a Kubernetes manifest auditor that reviews YAML for security and production-readiness issues.",
+      "version": "0.1.0",
+      "author": {
+        "name": "DevOps Daily",
+        "url": "https://devops-daily.com"
+      },
+      "homepage": "https://devops-daily.com",
+      "license": "MIT",
+      "category": "devops",
+      "tags": ["kubernetes", "security", "devops", "platform-engineering"]
+    }
+  ]
+}

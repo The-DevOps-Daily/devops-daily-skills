@@ -8,29 +8,34 @@ Each skill packages the checks and workflows a good platform engineer carries in
 
 | Skill | What it does |
 | --- | --- |
-| [`kubernetes-manifest-auditor`](skills/kubernetes-manifest-auditor) | Reviews Kubernetes YAML for security, reliability, and production-readiness issues and reports findings by severity with concrete fixes. |
+| [`kubernetes-manifest-auditor`](plugins/devops-daily-skills/skills/kubernetes-manifest-auditor) | Reviews Kubernetes YAML for security, reliability, and production-readiness issues and reports findings by severity with concrete fixes. |
 
 More on the way. Ideas and contributions welcome.
 
-## Using a skill with Claude Code
+## Install (Claude Code)
 
-Skills live in a directory with a `SKILL.md` file. Claude reads the description and loads the skill when a request matches.
+This repo is a Claude Code plugin marketplace, so installing is two commands, no manual copying:
 
-**Per project** (checked in for your team):
-
-```bash
-mkdir -p .claude/skills
-cp -r skills/kubernetes-manifest-auditor .claude/skills/
+```text
+/plugin marketplace add The-DevOps-Daily/devops-daily-skills
+/plugin install devops-daily-skills@devops-daily
 ```
 
-**For your user** (available everywhere):
+That is it. The skills are model-invoked, so you do not call them directly. Just ask, for example: *"audit these Kubernetes manifests before I apply them."* Claude loads the skill on its own.
+
+To update later: `/plugin marketplace update devops-daily`. To remove: `/plugin uninstall devops-daily-skills@devops-daily`.
+
+### Manual install (no plugin system)
+
+If you would rather drop the skill straight into your skills directory:
 
 ```bash
+# for your user (available everywhere)
 mkdir -p ~/.claude/skills
-cp -r skills/kubernetes-manifest-auditor ~/.claude/skills/
+cp -r plugins/devops-daily-skills/skills/kubernetes-manifest-auditor ~/.claude/skills/
 ```
 
-Then just ask, for example: *"audit these Kubernetes manifests before I apply them."* Claude picks up the skill on its own. See the [Agent Skills docs](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) for the full mechanism, including plugins and other agents.
+See the [Agent Skills](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) and [plugin](https://code.claude.com/docs/en/plugins) docs for the full mechanism and other agents.
 
 ## What is a skill?
 

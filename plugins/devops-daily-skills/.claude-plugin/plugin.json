@@ -1,0 +1,12 @@
+{
+  "name": "devops-daily-skills",
+  "description": "Skills for DevOps engineers, by DevOps Daily. Starts with a Kubernetes manifest auditor that reviews YAML for security, reliability, and production-readiness issues and reports findings with fixes.",
+  "version": "0.1.0",
+  "author": {
+    "name": "DevOps Daily",
+    "url": "https://devops-daily.com"
+  },
+  "homepage": "https://devops-daily.com",
+  "repository": "https://github.com/The-DevOps-Daily/devops-daily-skills",
+  "license": "MIT"
+}
