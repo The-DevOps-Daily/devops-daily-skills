@@ -32,9 +32,9 @@ Trigger on requests like:
    - **Secrets and config** (secrets in env vs mounted, plaintext data, config drift)
 
 3. **Judge severity honestly.** Use three levels:
-   - **Critical** — exploitable or outage-causing as written (privileged container, `hostPath` to `/`, cluster-admin binding, no resource limits on a public workload, secret value in plaintext).
-   - **Warning** — a real best-practice gap that will bite under load or in an incident (no probes, `:latest` tag, single replica for a stateful service, automounted SA token that is unused).
-   - **Info** — a nice-to-have or a note to confirm intent (missing labels, no `PodDisruptionBudget` on a batch job where it does not matter).
+   - **Critical**: exploitable or outage-causing as written (privileged container, `hostPath` to `/`, cluster-admin binding, no resource limits on a public workload, secret value in plaintext).
+   - **Warning**: a real best-practice gap that will bite under load or in an incident (no probes, `:latest` tag, single replica for a stateful service, automounted SA token that is unused).
+   - **Info**: a nice-to-have or a note to confirm intent (missing labels, no `PodDisruptionBudget` on a batch job where it does not matter).
 
    Do not inflate severity to pad the report, and do not flag something that is genuinely fine for the workload's context (a `Job` legitimately has one "replica"; a debug tool may need extra capabilities). When a finding depends on intent, say so.
 
@@ -44,7 +44,7 @@ Trigger on requests like:
 
 Lead with a one-line verdict and a severity tally, then the findings grouped Critical → Warning → Info. For each finding:
 
-- **`<kind>/<name>` — short title** `[Critical|Warning|Info]`
+- **`<kind>/<name>`: short title** `[Critical|Warning|Info]`
 - One or two sentences on what is wrong and why it matters.
 - A fenced YAML snippet with the fix.
 
@@ -53,10 +53,10 @@ End with a short "looks good" list of the things the manifest already does right
 ### Example shape
 
 ```
-Audit: api-gateway Deployment — 2 Critical, 3 Warnings, 1 Info. Not production ready.
+Audit: api-gateway Deployment. 2 Critical, 3 Warnings, 1 Info. Not production ready.
 
 ## Critical
-### Deployment/api-gateway — container runs as root [Critical]
+### Deployment/api-gateway: container runs as root [Critical]
 No securityContext, so the container runs as UID 0. A container escape lands as root on the node.
 ```yaml
 securityContext:
